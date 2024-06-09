@@ -13,8 +13,10 @@
       <button class="main__nav-item">Создать</button>
     </div>
   </nav>
-  <app-list-cities class=" content" *ngIf="isListViewActive" [cities]="sortCitiesByFavorite()"></app-list-cities>
-  <app-tile-cities class=" content" *ngIf="isTileViewActive" [cities]="sortCitiesByFavorite()"></app-tile-cities>
+  <app-list-cities class="content" *ngIf="isListViewActive" [cities]="sortCitiesByFavorite()"
+    (favoriteChanged)="onFavoriteChanged($event)"></app-list-cities>
+  <app-tile-cities class="content" *ngIf="isTileViewActive" [cities]="sortCitiesByFavorite()"
+    (favoriteChanged)="onFavoriteChanged($event)"></app-tile-cities>
 </main>
 <app-footer></app-footer>
 

@@ -46,6 +46,12 @@ export class AppComponent {
       }
     });
   };
+  onFavoriteChanged(cityId: number) {
+    const foundCity = this.cities.find(c => c.id === cityId);
+    if (foundCity) {
+      foundCity.favorite = !foundCity.favorite;
+    }
+  }
   toggleView(view: string) {
     if (view === 'list') {
       this.isListViewActive = true;
@@ -54,5 +60,5 @@ export class AppComponent {
       this.isListViewActive = false;
       this.isTileViewActive = true;
     }
-  }
+  };
 }

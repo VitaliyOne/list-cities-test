@@ -18,6 +18,10 @@
   overflow: hidden;
 }
 
+.content__tiles-item__icon{
+  cursor: pointer;
+}
+
 .content__item-text {
   color: var(--secondary);
 }

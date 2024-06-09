@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { City } from '../types';
 
 @Component({
@@ -13,4 +13,10 @@ import { City } from '../types';
 })
 export class TileCitiesComponent {
   @Input() cities: City[] = [];
+  @Output() favoriteChanged = new EventEmitter<number>();
+
+  toggleFavorite(cityId: number) {
+    console.log(cityId)
+    this.favoriteChanged.emit(cityId);
+  }
 }
