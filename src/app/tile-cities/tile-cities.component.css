@@ -1,0 +1,27 @@
+.content__tiles {
+  display: grid;
+  grid-template-columns: auto;
+  grid-gap: 20px;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.content__list-item {
+  display: flex;
+  flex-direction: row;
+}
+
+.content__tiles-item {
+  max-width: 320px;
+  border-radius: 8px;
+  background-color: var(--grey);
+  overflow: hidden;
+}
+
+.content__item-text {
+  color: var(--secondary);
+}
+
+.content__tiles-item__description{
+  padding: 0 15px
+}

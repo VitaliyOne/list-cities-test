@@ -1,7 +1,21 @@
 <style>
 </style>
 <app-header></app-header>
-<app-main></app-main>
+<main class="main">
+  <nav class="main__nav">
+    <div class="main__nav-group main__nav-group--left">
+      <button class="main__nav-item" [ngClass]="{'main__nav-item--active': isListViewActive}"
+        (click)="toggleView('list')">Список</button>
+      <button class="main__nav-item" [ngClass]="{'main__nav-item--active': isTileViewActive}"
+        (click)="toggleView('tile')">Плитка</button>
+    </div>
+    <div class="main__nav-group main__nav-group--right">
+      <button class="main__nav-item">Создать</button>
+    </div>
+  </nav>
+  <app-list-cities class="content" *ngIf="isListViewActive" [cities]="cities"></app-list-cities>
+  <app-tile-cities class="content" *ngIf="isTileViewActive" [cities]="cities"></app-tile-cities>
+</main>
 <app-footer></app-footer>
 
 <router-outlet />
