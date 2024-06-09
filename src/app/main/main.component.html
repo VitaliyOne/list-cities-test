@@ -1,0 +1,36 @@
+<main class="main">
+  <nav class="main__nav">
+    <div class="main__nav-group main__nav-group--left">
+      <button class="main__nav-item" [ngClass]="{'main__nav-item--active': isListViewActive}"
+        (click)="toggleView('list')">Список</button>
+      <button class="main__nav-item" [ngClass]="{'main__nav-item--active': isTileViewActive}"
+        (click)="toggleView('tile')">Плитка</button>
+    </div>
+    <div class="main__nav-group main__nav-group--right">
+      <button class="main__nav-item">Создать</button>
+    </div>
+  </nav>
+  <div class="content">
+    <div *ngIf="isListViewActive" class="content__list">
+      <div *ngFor="let city of cities">
+        <hr>
+        <div class="content__list-item">
+          <img [src]="city.image" alt="{{ city.name }}">
+          <h3>{{ city.name }}</h3>
+          <button [class.favorite]="city.favorite">Aa</button>
+          <p>{{ city.description }}</p>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="isTileViewActive" class="content__tiles">
+      <div class="content__tiles-item" *ngFor="let city of cities">
+        <img [src]="city.image" alt="{{ city.name }}">
+        <div>
+          <h3>{{ city.name }}</h3>
+          <button [class.favorite]="city.favorite">Aa</button>
+        </div>
+        <p class="tiles__item-text">{{ city.description }}</p>
+      </div>
+    </div>
+  </div>
+</main>
