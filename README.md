@@ -1,27 +1,40 @@
-# DescriptionCities
+# Список городов
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.2.
+Демо:
 
-## Development server
+## Задача
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Создать веб-приложение на Angular, отображающее данные о городах. Приложение должно быть сверстано по [дизайн-макету в Figma](https://www.figma.com/design/5eklzRSGfECfGdJ67TeDUF/HR-enKod%3A-тестовое-задание-Fronted-разработчик?node-id=1-14&t=OdhPZum2EdPiox0v-0).
 
-## Code scaffolding
+## Требования
+1. У приложения есть два компонента, отвечающие за вывод данных в виде
+плитки и списка соответственно. Переключение между ними происходит в
+родительском компоненте app.
+2. У элементов есть возможность добавить в избранное, и это состояние
+общее, то есть не зависит от типа отображения (плитка и список).
+3. Требования к внешнему виду:
+- Верстка в соответствии с макетом.
+- Шрифт Roboto.
+- Использовать иконки и цвета из макета.
+4. Использовать CSS Flexbox при верстке страниц. Страница должна
+растягиваться во весь экран. (при желании можно дополнить CSS Grid
+Layout)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Формат данных
+- id (number)
+- image - фото города (string)
+- name - название города (string)
+- description - описание города (string)
+- favorite - состояние добавленного в избранное (boolean)
 
-## Build
+## Установка и запуск
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Приложение написано на Angular CLI 18.0.2
 
-## Running unit tests
+```bash
+# Установка зависимостей
+$ npm install
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+# Запуск приложения
+$ ng build
+```
