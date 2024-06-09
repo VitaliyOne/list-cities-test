@@ -2,6 +2,7 @@
   --main: #434652;
   --secondary: #757986;
   --grey: #F2F5FA;
+  --gray30: #C4C7D1;
   --cyan: #21a5b9;
   --white: #ffffff;
 
@@ -33,12 +34,10 @@ h3 {
 button {
   padding: 10px 12px;
   background-color: var(--white);
-  border: 1px solid var(--grey);
   border-radius: 2px;
-}
-
-.button--active {
-  background-color: var(--grey);
+  font-family: "Roboto";
+  font-size: 15px;
+  border: none;
 }
 
 main {
@@ -70,6 +69,14 @@ main {
   color: white;
   border: none;
   border: 1px solid var(--cyan)
+}
+
+.main__nav-item{
+  border: 1px solid var(--gray30);
+}
+
+.main__nav-item--active{
+  background-color: var(--grey);
 }
 
 .content {
