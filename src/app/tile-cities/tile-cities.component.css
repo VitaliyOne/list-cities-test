@@ -18,6 +18,10 @@
   overflow: hidden;
 }
 
+.content__tiles-item__img{
+  max-height: 188px;
+}
+
 .content__tiles-item__icon{
   cursor: pointer;
   margin-left: 10px;

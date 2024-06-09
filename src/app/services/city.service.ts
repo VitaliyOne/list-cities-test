@@ -18,24 +18,24 @@ export class CityService {
   constructor() {}
 
   addCity(city: City): void {
-    this.cities.push(city);
+    this.cities.unshift(city);
+    this.sortCitiesByFavorite();
   }
 
-  sortCitiesByFavorite(cities: City[]): City[] {
-    return cities.slice().sort((a, b) => {
-      if (a.favorite === b.favorite) {
-        return 0;
-      } else if (a.favorite) {
-        return -1;
-      } else {
-        return 1;
-      }
-    });
-  }
   toggleFavorite(cityId: number): void {
-    const foundCity = this.cities.find(c => c.id === cityId);
-    if (foundCity) {
-      foundCity.favorite = !foundCity.favorite;
+    const city = this.cities.find(c => c.id === cityId);
+    if (city) {
+      city.favorite = !city.favorite;
+      this.sortCitiesByFavorite();
     }
+  }
+
+  sortCitiesByFavorite(): void {
+    this.cities.sort((a, b) => {
+      if (a.favorite === b.favorite) {
+        return a.name.localeCompare(b.name);
+      }
+      return a.favorite ? -1 : 1;
+    });
   }
 }

@@ -1,13 +1,13 @@
 <app-header [title]="headerTitle"></app-header>
 <main>
   <button routerLink=''><img class="button-icon" src="backIcon.svg" alt="">Назад</button>
-  <form class="form">
+  <form class="form" (ngSubmit)="submitForm()">
     <label>Название города</label>
-    <input class="form__input" type="text">
+    <input class="form__input" type="text" [(ngModel)]="cityName" name="cityName">
     <label>Описание города</label>
-    <textarea class="form__textarea"></textarea>
+    <textarea class="form__textarea" [(ngModel)]="cityDescription" name="cityDescription"></textarea>
     <label>Ссылка на картинку</label>
-    <input class="form__input" type="text">
-    <button type="button" class="form__submit button-cyan">Создать</button>
+    <input class="form__input" type="text" [(ngModel)]="cityImageUrl" name="cityImageUrl">
+    <button type="submit" class="form__submit button-cyan">Создать</button>
   </form>
 </main>

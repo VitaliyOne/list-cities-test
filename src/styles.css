@@ -27,6 +27,8 @@ input, textarea{
   padding: 8px ;
   margin: 0;
   box-sizing: border-box;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 input, textarea:focus {
@@ -42,7 +44,7 @@ button {
   font-size: 15px;
   border: none;
   border: 1px solid var(--gray30);
-  transition: transform 0.2s ease;
+  transition: box-shadow 0.3s ease;
 }
 
 .button-cyan{
@@ -53,5 +55,5 @@ button {
 }
 
 button:hover {
-  transform: scale(1.01);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }

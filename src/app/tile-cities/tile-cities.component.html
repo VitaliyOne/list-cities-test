@@ -1,6 +1,6 @@
 <div class="content__tiles">
   <div class="content__tiles-item" *ngFor="let city of cities">
-    <img [src]="city.image" alt="{{ city.name }}">
+    <img class="content__tiles-item__img" [src]="city.image" alt="{{ city.name }}">
     <div class="content__tiles-item__description">
       <h3>{{ city.name }}
         <img class="content__tiles-item__icon" [src]="'favoriteIcon' + (city.favorite ? 'Active' : '') + '.svg'"

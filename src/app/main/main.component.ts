@@ -31,16 +31,16 @@ export class MainComponent {
   cities: City[] = [];
 
   constructor(private cityService: CityService) {
-    this.cities = this.cityService.cities;
+    this.updateCities();
   }
 
-  sortCitiesByFavorite(): void {
-    this.cities = this.cityService.sortCitiesByFavorite(this.cities);
+  updateCities(): void {
+    this.cities = [...this.cityService.cities];
   }
 
   onFavoriteChanged(cityId: number): void {
     this.cityService.toggleFavorite(cityId);
-    this.sortCitiesByFavorite();
+    this.updateCities();
   }
 
   toggleView(view: string) {
