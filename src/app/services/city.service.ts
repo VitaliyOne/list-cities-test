@@ -15,7 +15,7 @@ export class CityService {
     { id: 7, image: 'https://screenshots.enkod.tech/ilya_novikovc2dbr7KvIJ2dknlZ.png', name: 'Казань', description: 'Город в России, столица Республики Татарстан.', favorite: true }
   ];
 
-  constructor() {}
+  constructor() { this.sortCitiesByFavorite(); }
 
   addCity(city: City): void {
     this.cities.unshift(city);
@@ -35,7 +35,11 @@ export class CityService {
       if (a.favorite === b.favorite) {
         return a.name.localeCompare(b.name);
       }
-      return a.favorite ? -1 : 1;
+      if (a.favorite) {
+        return -1;
+      } else {
+        return 1;
+      }
     });
   }
 }
