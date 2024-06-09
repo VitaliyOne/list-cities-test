@@ -30,22 +30,21 @@
     color: var(--main);
   }
 
-  header {
-    background-color: var(--grey);
-    padding: 40px 0 40px 60px;
+  button {
+    padding: 10px 12px;
+    background: #FFFFFF;
+    border: 1px solid var(--grey);
+    border-radius: 2px 0px 0px 2px;
   }
 
-  header h1 {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 28px;
-    line-height: 33px;
-    color: var(--main);
+  .button--active {
+    background-color: var(--grey);
   }
 
   main {
     width: 100%;
     height: 100%;
+    padding: 0 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -55,14 +54,34 @@
 
   .main__nav {
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  .main__nav-group {
+    display: flex;
+  }
+
+  .main__nav-group--left .main__nav-item {
+    margin-right: 10px;
+  }
+
+  .main__nav-group--right .main__nav-item {
+    margin-left: 0;
+    padding: 8px 20px;
+    background: var(--cyan);
+    border-radius: 4px;
+    color: white;
+    border: none;
+    border: 1px solid var(--cyan)
   }
 
   .content {
     display: flex;
     justify-content: space-around;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 15px;
   }
 
   .content__list {
@@ -95,21 +114,6 @@
     color: var(--secondary);
   }
 
-
-  footer {
-    background-color: var(--grey);
-    padding: 10px 0 10px 60px;
-    margin-top: 30px;
-  }
-
-  footer p,
-  a {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    color: var(--main);
-  }
-
   @media screen and (max-width: 650px) {
     .content {
       flex-direction: column;
@@ -117,17 +121,21 @@
     }
   }
 </style>
-<header>
-  <h1>Cписок городов</h1>
-</header>
+<app-header></app-header>
 <main class="main">
   <nav class="main__nav">
-    <button (click)="toggleView()">Список</button>
-    <button (click)="toggleView()">Плитка</button>
-    <button>Создать</button>
+    <div class="main__nav-group main__nav-group--left">
+      <button class="main__nav-item" [ngClass]="{'main__nav-item--active': isListViewActive}"
+        (click)="toggleView('list')">Список</button>
+      <button class="main__nav-item" [ngClass]="{'main__nav-item--active': isTileViewActive}"
+        (click)="toggleView('tile')">Плитка</button>
+    </div>
+    <div class="main__nav-group main__nav-group--right">
+      <button class="main__nav-item">Создать</button>
+    </div>
   </nav>
   <div class="content">
-    <div *ngIf="isListView" class="content__list">
+    <div *ngIf="isListViewActive" class="content__list">
       <div *ngFor="let city of cities">
         <hr>
         <div class="content__list-item">
@@ -138,7 +146,7 @@
         </div>
       </div>
     </div>
-    <div *ngIf="!isListView" class="content__tiles">
+    <div *ngIf="isTileViewActive" class="content__tiles">
       <div class="content__tiles-item" *ngFor="let city of cities">
         <img [src]="city.image" alt="{{ city.name }}">
         <div>
@@ -150,12 +158,6 @@
     </div>
   </div>
 </main>
-<footer>
-  <p>Telegram:
-    <a href="https://t.me/VitaliyOne1" target="_blank" rel="noopener noreferrer"
-      style="margin-left: 10px;">&#64;VitaliyOne1
-    </a>
-  </p>
-</footer>
+<app-footer></app-footer>
 
 <router-outlet />

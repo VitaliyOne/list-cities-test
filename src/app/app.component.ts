@@ -2,19 +2,25 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { City } from './types';
 import { CommonModule } from '@angular/common';
+import { FooterComponent } from "./footer/footer.component";
+import { HeaderComponent } from "./header/header.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css',
   imports: [
     [RouterOutlet],
-    CommonModule
-  ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+    CommonModule,
+    FooterComponent,
+    HeaderComponent
+  ]
 })
 export class AppComponent {
   title = 'list-cities';
+  isListViewActive: boolean = true;
+  isTileViewActive: boolean = false;
   isListView: boolean = true;
   cities: City[] = [
     { id: 1, image: 'https://screenshots.enkod.tech/ilya_novikovG6KIVEp3v160xCMY.png', name: 'Москва', description: 'Столица России, город федерального значения', favorite: false },
@@ -25,7 +31,13 @@ export class AppComponent {
     { id: 6, image: 'https://screenshots.enkod.tech/ilya_novikovvjgSDr7xZl6A2UmH.png', name: 'Челябинск', description: 'Город в Российской Федерации, седьмой по количеству жителей', favorite: false },
     { id: 7, image: 'https://screenshots.enkod.tech/ilya_novikovc2dbr7KvIJ2dknlZ.png', name: 'Казань', description: 'Город в России, столица Республики Татарстан.', favorite: false }
   ];
-  toggleView(): void {
-    this.isListView = !this.isListView;
+  toggleView(view: string) {
+    if (view === 'list') {
+      this.isListViewActive = true;
+      this.isTileViewActive = false;
+    } else if (view === 'tile') {
+      this.isListViewActive = false;
+      this.isTileViewActive = true;
+    }
   }
 }
