@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { HeaderComponent } from "../header/header.component";
 import { RouterLink } from '@angular/router';
+import { City } from '../types';
+import { CityService } from '../services/city.service';
 
 @Component({
   selector: 'app-create-city',
@@ -11,4 +13,8 @@ import { RouterLink } from '@angular/router';
 })
 export class CreateCityComponent {
   headerTitle: string = 'Создание города';
+  cities: City[] = [];
+  constructor(private cityService: CityService) {
+    this.cities = this.cityService.cities;
+  }
 }
