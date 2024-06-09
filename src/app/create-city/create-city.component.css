@@ -3,3 +3,38 @@ main {
   box-sizing: border-box;
   padding: 0 60px;
 }
+
+.button-icon{
+  margin-right: 10px;
+  width: 16px;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.form__input, .form__textarea{
+  margin: 5px 0 15px;
+  width: 530px;
+}
+
+.form__textarea {
+  height: 80px;
+  resize: none;
+}
+.form__submit {
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 650px) {
+  main{
+    padding: 0 20px;
+  }
+  .form__input, .form__textarea{
+    width: 100%;
+  }
+}

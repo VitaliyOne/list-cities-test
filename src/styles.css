@@ -22,6 +22,17 @@ h3 {
   color: var(--main);
 }
 
+input, textarea{
+  border: 1px solid var(--gray30);
+  padding: 8px ;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+input, textarea:focus {
+    outline: none;
+}
+
 button {
   cursor: pointer;
   padding: 10px 12px;
@@ -30,4 +41,17 @@ button {
   font-family: "Roboto";
   font-size: 15px;
   border: none;
+  border: 1px solid var(--gray30);
+  transition: transform 0.2s ease;
+}
+
+.button-cyan{
+  background: var(--cyan);
+  border-radius: 4px;
+  color: white;
+  border: 1px solid var(--cyan)
+}
+
+button:hover {
+  transform: scale(1.01);
 }
