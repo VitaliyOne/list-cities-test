@@ -35,6 +35,17 @@ export class AppComponent {
     { id: 6, image: 'https://screenshots.enkod.tech/ilya_novikovvjgSDr7xZl6A2UmH.png', name: 'Челябинск', description: 'Город в Российской Федерации, седьмой по количеству жителей', favorite: false },
     { id: 7, image: 'https://screenshots.enkod.tech/ilya_novikovc2dbr7KvIJ2dknlZ.png', name: 'Казань', description: 'Город в России, столица Республики Татарстан.', favorite: true }
   ];
+  sortCitiesByFavorite(): City[] {
+    return this.cities.slice().sort((a, b) => {
+      if (a.favorite === b.favorite) {
+        return 0;
+      } else if (a.favorite) {
+        return -1;
+      } else {
+        return 1;
+      }
+    });
+  };
   toggleView(view: string) {
     if (view === 'list') {
       this.isListViewActive = true;
