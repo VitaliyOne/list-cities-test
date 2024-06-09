@@ -16,7 +16,6 @@ export class ListCitiesComponent {
   @Output() favoriteChanged = new EventEmitter<number>();
 
   toggleFavorite(cityId: number) {
-    console.log(cityId)
     this.favoriteChanged.emit(cityId);
   }
 }

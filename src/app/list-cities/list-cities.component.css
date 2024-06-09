@@ -21,14 +21,15 @@
   margin-right: 15px;
 }
 
-.content__tiles-item__icon{
+.content__list-item__icon{
   cursor: pointer;
+  margin-left: 10px;
 }
 
 .content__item-text {
   color: var(--secondary);
 }
 
-.content__tiles-item__description{
+.content__list-item__description{
   padding: 0 15px
 }

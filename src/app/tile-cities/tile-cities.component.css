@@ -20,6 +20,7 @@
 
 .content__tiles-item__icon{
   cursor: pointer;
+  margin-left: 10px;
 }
 
 .content__item-text {

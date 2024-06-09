@@ -3,11 +3,11 @@
     <hr>
     <div class="content__list-item">
       <img class="content__list-item__img" [src]="city.image" alt="{{ city.name }}">
-      <div class="content__tiles-item__description">
-        <h3>{{ city.name }}
-          <span class="content__tiles-item__icon" [class.favorite]="city.favorite" (click)="toggleFavorite(city.id)">
-            {{ city.favorite ? '★' : '☆' }}
-          </span>
+      <div class="content__list-item__description">
+        <h3>
+          {{ city.name }}
+          <img class="content__list-item__icon" [src]="'favoriteIcon' + (city.favorite ? 'Active' : '') + '.svg'"
+            alt="Favorite Icon" (click)="toggleFavorite(city.id)">
         </h3>
         <p class="content__item-text">{{ city.description }}</p>
       </div>
